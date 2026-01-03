@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>:<link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <title>Untuk Sayangku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Halo Sayang! ❤️</h1>
+            <p>Ini adalah tempat kecil untuk merayakan kita.</p>
+        </header>
+
+        <section class="gallery">
+            <div class="photo-card">
+                <img src="1.jpeg" alt="Kenangan 1">
+                <p>Cantikkk Bangetttt😍😍😍</p>
+            </div>
+            <div class="photo-card">
+                <img src="2.jpeg" alt="Kenangan 2">
+                <p>"Bidadari tak bersayap datang padaku~~~🩷🩷🩷"</p>
+            </div>
+        </section>
+
+        <article class="message">
+            <h2>Pesan Untuk Poppi</h2>
+            <p>"Terima kasih sudah menjadi bagian terindah dalam hidupku. Aku sayang kamu lebih dari kata-kata yang bisa dituliskan di sini."</p>
+        </article>
+
+        <footer>
+            <p>Dibuat dengan ❤️ oleh [Ultramen mu]</p>
+        </footer>
+    </div>
+    <script>
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        
+        // Pilih emoji secara acak
+        const emojis = ['❤️', '💖', '✨', '🌸', '🥰'];
+        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        
+        // Posisi horizontal acak (0 sampai 100% lebar layar)
+        heart.style.left = Math.random() * 100 + "vw";
+        
+        // Ukuran acak agar lebih natural
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        
+        // Kecepatan jatuh acak (antara 3 sampai 7 detik)
+        const duration = Math.random() * 4 + 3;
+        heart.style.animationDuration = duration + "s";
+        
+        // Transparansi acak
+        heart.style.opacity = Math.random() * 0.5 + 0.5;
+
+        document.body.appendChild(heart);
+
+        // Hapus elemen setelah animasi selesai agar tidak memberatkan browser
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
+
+    // Jalankan fungsi createHeart setiap 300 milidetik (0.3 detik)
+    setInterval(createHeart, 300);
+    document.addEventListener('click', (e) => {
+    for (let i = 0; i < 5; i++) { // Munculkan 5 emoji sekaligus saat klik
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerText = '❤️';
+        heart.style.left = e.clientX + (Math.random() * 40 - 20) + "px";
+        heart.style.top = e.clientY + (Math.random() * 40 - 20) + "px";
+        heart.style.animation = "fall 3s linear forwards";
+        document.body.appendChild(heart);
+        
+        setTimeout(() => { heart.remove(); }, 3000);
+    }
+});
+</script>
+
+</body>
+</html>
